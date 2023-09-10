@@ -8,16 +8,16 @@
 
 namespace gof {
 class GameOfLife {
-    sf::RenderWindow m_window;
-    Board<Cell> m_cells;
-    void init();
-    void handle_event(sf::Event const&);
-    void update();
-    void render();
+  sf::RenderWindow m_window;
+  Board<Cell> m_cells;
+  void init();
+  void handle_event(sf::Event const&);
+  void update();
+  void render();
 
-public:
-    GameOfLife(unsigned int width = 800, unsigned int height = 600);
-    void run();
+  public:
+  GameOfLife(unsigned int width = 800, unsigned int height = 600);
+  void run();
 };
 } // namespace gof
 #endif // APP_HPP

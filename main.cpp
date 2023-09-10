@@ -3,6 +3,6 @@
 
 int main(int, char**)
 {
-    auto game = gof::GameOfLife();
-    game.run();
+  auto game = gof::GameOfLife();
+  game.run();
 }

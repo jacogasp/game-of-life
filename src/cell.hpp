@@ -9,7 +9,7 @@ class Cell : public sf::Drawable {
     bool m_is_active;
 
 public:
-    Cell(float size = 5);
+    explicit Cell (float size = 5);
     void set_position(sf::Vector2f const& position);
     [[nodiscard]] bool is_active() const;
     void set_is_active(bool is_active);

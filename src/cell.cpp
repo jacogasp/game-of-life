@@ -24,6 +24,7 @@ void Cell::set_is_active(bool is_active)
     m_is_active = is_active;
     m_shape.setFillColor(m_is_active ? sf::Color::White : sf::Color::Black);
 }
+
 void Cell::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     target.draw(m_shape);

@@ -6,19 +6,22 @@
 namespace gof {
 void GameOfLife::init()
 {
-    auto size = m_window.getSize();
+    auto window_size = m_window.getSize();
     constexpr float cell_size = 20.0f;
     sf::Vector2i cell_counts {
-        static_cast<int>(std::floor(size.x / cell_size)),
-        static_cast<int>(std::floor(size.y / cell_size))
+        static_cast<int>(std::floor(window_size.x / cell_size)),
+        static_cast<int>(std::floor(window_size.y / cell_size))
     };
-    m_cells.reserve(cell_counts.x, cell_counts.y);
+    
+    m_cells.resize(cell_counts.x, cell_counts.y);
+    std::generate(m_cells.begin(), m_cells.end(), [cell_size] { return Cell(cell_size); });
+
     for (int i = 0; i < cell_counts.x; ++i) {
         for (int j = 0; j < cell_counts.y; ++j) {
-            m_cells.emplace_back(cell_size);
-            m_cells.back().set_position(sf::Vector2f { i * cell_size, j * cell_size });
+            auto& cell = m_cells.at(i, j);
+            cell.set_position(sf::Vector2f { i * cell_size, j * cell_size });
             if ((i + j) % 2 == 0) {
-                m_cells.back().set_is_active(true);
+                cell.set_is_active(true);
             }
         }
     }

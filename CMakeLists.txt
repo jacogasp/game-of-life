@@ -19,6 +19,7 @@ add_library(
   libgameoflife
   OBJECT
   src/gof.cpp
+  src/cell.cpp
 )
 
 target_link_libraries(libgameoflife PUBLIC 

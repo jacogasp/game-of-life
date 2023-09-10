@@ -12,8 +12,7 @@ void GameOfLife::init()
         static_cast<int>(std::floor(size.x / cell_size)),
         static_cast<int>(std::floor(size.y / cell_size))
     };
-    auto total_cells = cell_counts.x + cell_counts.y;
-    m_cells.reserve(total_cells);
+    m_cells.reserve(cell_counts.x, cell_counts.y);
     for (int i = 0; i < cell_counts.x; ++i) {
         for (int j = 0; j < cell_counts.y; ++j) {
             m_cells.emplace_back(cell_size);

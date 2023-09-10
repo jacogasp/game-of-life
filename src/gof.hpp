@@ -7,6 +7,9 @@
 namespace gof {
 class GameOfLife {
     sf::RenderWindow m_window;
+    void handle_event(sf::Event const&);
+    void update();
+    void render();
 
 public:
     GameOfLife(unsigned int width = 800, unsigned int height = 600);

@@ -46,11 +46,13 @@ class Board {
 
   T& operator()(size_t x, size_t y)
   {
+    assert(x < m_size.cols && y < m_size.rows && "indices out of bound");
     return m_board[x + y * m_size.cols];
   }
 
   T const& operator()(size_t x, size_t y) const
   {
+    assert(x < m_size.cols && y < m_size.rows && "indices out of bound");
     return m_board[x + y * m_size.cols];
   }
 

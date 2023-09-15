@@ -49,6 +49,11 @@ class Board {
     return m_board[x + y * m_size.cols];
   }
 
+  T const& at(size_t x, size_t y) const
+  {
+    return m_board[x + y * m_size.cols];
+  }
+
   T& back()
   {
     return m_board.back();

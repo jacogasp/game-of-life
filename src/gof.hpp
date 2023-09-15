@@ -10,6 +10,8 @@ namespace gof {
 class GameOfLife {
   sf::RenderWindow m_window;
   Board<Cell> m_cells;
+  bool m_run;
+
   void init();
   void handle_event(sf::Event const&);
   void update();

@@ -6,9 +6,9 @@ AlignAfterOpenBracket: DontAlign
 AlignArrayOfStructures: None
 AlignConsecutiveAssignments:
   Enabled: true
-  AcrossEmptyLines: true
-  AcrossComments: true
-  AlignCompound: true
+  AcrossEmptyLines: false
+  AcrossComments: false
+  AlignCompound: false
   PadOperators: true
 AlignConsecutiveBitFields:
   Enabled: false

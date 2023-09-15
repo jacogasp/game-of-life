@@ -23,7 +23,7 @@ void GameOfLife::init()
 
   for (int i = 0; i < cell_counts.x; ++i) {
     for (int j = 0; j < cell_counts.y; ++j) {
-      auto& cell = m_cells.at(i, j);
+      auto& cell = m_cells(i, j);
       cell.set_position(sf::Vector2f { i * cell_size, j * cell_size });
     }
   }
@@ -40,7 +40,7 @@ void GameOfLife::handle_event(sf::Event const& event)
     int x       = m_cells.size().cols * coords.x / m_window.getSize().x;
     int y       = m_cells.size().rows * coords.y / m_window.getSize().y;
     std::cout << "Click at cell (" << x << ", " << y << ")\n";
-    auto& cell = m_cells.at(x, y);
+    auto& cell = m_cells(x, y);
     cell.set_is_active(!cell.is_active());
     std::cout << (cell.is_active() ? "cell activated" : "cell deactivated") << '\n';
   } break;
@@ -94,14 +94,14 @@ void GameOfLife::update()
     }
 
     std::vector<std::reference_wrapper<Cell>> neighbors {
-      m_cells.at(col - 1, row - 1),
-      m_cells.at(col - 1, row),
-      m_cells.at(col - 1, row + 1),
-      m_cells.at(col, row - 1),
-      m_cells.at(col, row + 1),
-      m_cells.at(col + 1, row - 1),
-      m_cells.at(col + 1, row),
-      m_cells.at(col + 1, row + 1),
+      m_cells(col - 1, row - 1),
+      m_cells(col - 1, row),
+      m_cells(col - 1, row + 1),
+      m_cells(col, row - 1),
+      m_cells(col, row + 1),
+      m_cells(col + 1, row - 1),
+      m_cells(col + 1, row),
+      m_cells(col + 1, row + 1),
     };
 
     int alive_neighbors = std::reduce(neighbors.begin(), neighbors.end(), 0,

@@ -44,12 +44,12 @@ class Board {
     return m_size;
   }
 
-  T& at(size_t x, size_t y)
+  T& operator()(size_t x, size_t y)
   {
     return m_board[x + y * m_size.cols];
   }
 
-  T const& at(size_t x, size_t y) const
+  T const& operator()(size_t x, size_t y) const
   {
     return m_board[x + y * m_size.cols];
   }

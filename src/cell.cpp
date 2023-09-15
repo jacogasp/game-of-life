@@ -2,6 +2,7 @@
 
 namespace gof {
 Cell::Cell(float size)
+  : m_side { size }
 {
   m_shape.setSize(sf::Vector2f { size, size });
   m_shape.setFillColor(sf::Color::White);
@@ -12,6 +13,11 @@ Cell::Cell(float size)
 void Cell::set_position(sf::Vector2f const& position)
 {
   m_shape.setPosition(position);
+}
+
+float Cell::get_size() const
+{
+  return m_side;
 }
 
 bool Cell::is_active() const

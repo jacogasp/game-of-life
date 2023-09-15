@@ -7,10 +7,13 @@
 namespace gof {
 template <typename T>
 class Board {
+  public:
   struct Size {
     size_t cols;
     size_t rows;
   };
+
+  private:
   Size m_size;
   std::vector<T> m_board;
 
